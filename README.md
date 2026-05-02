@@ -7,6 +7,7 @@
 ## Why cmderr?
 
 In distributed systems or asynchronous workflows (like background workers or CQRS), errors often need to be:
+
 1. **Persisted** to a database.
 2. **Transmitted** over the wire (JSON).
 3. **Reconstructed** in another process to maintain `errors.Is` and `errors.As` functionality.
@@ -120,6 +121,35 @@ The package includes several common categories that you can use out of the box:
 - `cmderr.ErrTimeout` (`"TIMEOUT"`)
 - `cmderr.ErrCanceled` (`"CANCELED"`)
 - `cmderr.ErrInternal` (`"INTERNAL"`)
+
+---
+
+## AI Agent Skill
+
+`cmderr` includes a built-in **AI Agent Skill** that provides procedural knowledge to AI coding assistants (like Claude Code, Cursor, etc.) on how to use this library correctly.
+
+### Skill Installation
+
+You can install the skill using the [skills.sh](https://skills.sh) CLI:
+
+```bash
+npx skills add madman/cmderr
+```
+
+Or, if you are working directly in this repository, you can link the local skill:
+
+```bash
+./skills.sh link skills/cmderr
+```
+
+### Benefits
+
+Once installed, your AI agent will:
+
+- Know the best practices for error normalization and persistence.
+- Automatically suggest using `cmderr.From(err)` at command boundaries.
+- Help you register custom codecs and wrap domain errors correctly.
+- Understand when to use `cmderr` vs. standard Go errors.
 
 ---
 
